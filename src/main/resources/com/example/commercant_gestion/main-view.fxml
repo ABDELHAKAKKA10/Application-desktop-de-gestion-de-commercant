@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.commercant_gestion.controller.MainController"
+            prefHeight="700.0" prefWidth="1000.0"
+            stylesheets="@styles.css"
+            styleClass="root">
+
+    <left>
+        <VBox spacing="10.0" styleClass="sidebar">
+            <VBox alignment="CENTER" spacing="10" style="-fx-padding: 30 0 30 0;">
+                <ImageView fitWidth="80" fitHeight="80" preserveRatio="true">
+                    <image>
+                        <Image url="@logo.png"/>
+                    </image>
+                </ImageView>
+                <Label text="Gestion Commerçant" styleClass="sidebar-title" wrapText="true" textAlignment="CENTER"/>
+            </VBox>
+            
+            <Separator style="-fx-opacity: 0.3; -fx-padding: 0 10;"/>
+
+
+            <VBox spacing="5" style="-fx-padding: 10;">
+                <Button fx:id="btnProducts" text="Produits" onAction="#handleShowProducts" maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="btnClients" text="Clients" onAction="#handleShowClients" maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="btnNewSale" text="Nouvelle Vente" onAction="#handleShowNewSale" maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="btnHistory" text="Historique Ventes" onAction="#handleShowHistory" maxWidth="Infinity" styleClass="nav-button"/>
+            </VBox>
+            
+            <Region VBox.vgrow="ALWAYS" />
+            
+            <Label text="v1.0.0" style="-fx-text-fill: #94a3b8; -fx-font-size: 11px; -fx-padding: 20;"/>
+        </VBox>
+    </left>
+
+    <center>
+
+        <StackPane fx:id="contentArea" style="-fx-padding: 10;">
+            <fx:include fx:id="productView" source="product-view.fxml"/>
+            <fx:include fx:id="clientView" source="client-view.fxml" visible="false"/>
+            <fx:include fx:id="saleView" source="sale-view.fxml" visible="false"/>
+            <fx:include fx:id="historyView" source="history-view.fxml" visible="false"/>
+        </StackPane>
+    </center>
+
+</BorderPane>

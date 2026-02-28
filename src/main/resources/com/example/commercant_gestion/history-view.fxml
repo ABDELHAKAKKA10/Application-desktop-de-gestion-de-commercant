@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.commercant_gestion.controller.HistoryController"
+            prefHeight="600.0" prefWidth="800.0" 
+            styleClass="root">
+
+    <SplitPane dividerPositions="0.6" orientation="VERTICAL" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0">
+                <children>
+                    <VBox spacing="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label text="Historique des Ventes" styleClass="title-label"/>
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button text="Modifier la vente" onAction="#handleModify" styleClass="button-warning"/>
+                            <Button text="Rafraîchir" onAction="#handleRefresh" styleClass="button-secondary"/>
+                        </HBox>
+                        <TableView fx:id="tableSales" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colId" text="ID Vente" prefWidth="80.0"/>
+                                <TableColumn fx:id="colDate" text="Date" prefWidth="150.0"/>
+                                <TableColumn fx:id="colClient" text="Client" prefWidth="200.0"/>
+                                <TableColumn fx:id="colTotal" text="Montant Total" prefWidth="150.0"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0">
+                <children>
+                    <VBox spacing="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+                        <Label text="Détails de la vente sélectionnée" styleClass="label-header"/>
+                        <TableView fx:id="tableDetails" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colDetailProduct" text="Produit" prefWidth="200.0"/>
+                                <TableColumn fx:id="colDetailQuantity" text="Quantité" prefWidth="100.0"/>
+                                <TableColumn fx:id="colDetailPrice" text="Prix Unitaire" prefWidth="130.0"/>
+                                <TableColumn fx:id="colDetailTotal" text="Total Ligne" prefWidth="130.0"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </children>
+            </AnchorPane>
+        </items>
+    </SplitPane>
+
+</AnchorPane>

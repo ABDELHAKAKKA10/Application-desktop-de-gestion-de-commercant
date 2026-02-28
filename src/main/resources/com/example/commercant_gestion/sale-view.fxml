@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.commercant_gestion.controller.SaleController"
+            prefHeight="600.0" prefWidth="800.0"
+            styleClass="root">
+
+    <top>
+        <VBox spacing="15.0" BorderPane.alignment="CENTER" styleClass="card">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Client:" styleClass="label-header"/>
+                <ComboBox fx:id="cbClient" prefWidth="250.0" promptText="Sélectionner un client"/>
+                <Button text="Rafraîchir Clients" onAction="#handleRefreshClients" styleClass="button-secondary"/>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnCancel" text="Annuler Modification" onAction="#handleCancelEdit" visible="false" styleClass="button-danger"/>
+            </HBox>
+            
+            <Separator />
+            
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+                <Label text="Produit:"/>
+                <ComboBox fx:id="cbProduct" prefWidth="250.0" promptText="Sélectionner un produit"/>
+                
+                <Label text="Quantité:"/>
+                <TextField fx:id="txtQuantity" prefWidth="80.0" text="1"/>
+                
+                <Label text="Prix Unitaire:"/>
+                <Label fx:id="lblPrice" text="0.0" style="-fx-font-weight: bold;"/>
+                
+                <Button text="Ajouter à la vente" onAction="#handleAddToSale" styleClass="button-warning"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableSaleLines">
+            <columns>
+                <TableColumn fx:id="colProductName" text="Produit" prefWidth="250.0" />
+                <TableColumn fx:id="colQuantity" text="Quantité" prefWidth="100.0" />
+                <TableColumn fx:id="colUnitPrice" text="Prix Unitaire" prefWidth="120.0" />
+                <TableColumn fx:id="colTotalLine" text="Total Ligne" prefWidth="120.0" />
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="20.0" alignment="CENTER_RIGHT" BorderPane.alignment="CENTER" style="-fx-padding: 20; -fx-background-color: white;">
+            <Label text="Total Vente:" styleClass="title-label"/>
+            <Label fx:id="lblTotalSale" text="0.0" styleClass="price-label"/>
+            <Button fx:id="btnConfirm" text="Valider la Vente" onAction="#handleConfirmSale" styleClass="button-success" prefHeight="40" prefWidth="150"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.commercant_gestion.controller.ClientController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <SplitPane dividerPositions="0.3" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="form-container">
+                <children>
+                    <VBox spacing="15.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                        <Label text="Gestion Clients" styleClass="label-header"/>
+
+                        <VBox spacing="5">
+                            <Label text="Nom" />
+                            <TextField fx:id="txtNom" promptText="Ex: Doe"/>
+                        </VBox>
+                        
+                        <VBox spacing="5">
+                            <Label text="Prénom" />
+                            <TextField fx:id="txtPrenom" promptText="Ex: John"/>
+                        </VBox>
+                        
+                        <VBox spacing="5">
+                            <Label text="Téléphone" />
+                            <TextField fx:id="txtTelephone" promptText="Ex: 0612345678"/>
+                        </VBox>
+                        
+                        <VBox spacing="5">
+                            <Label text="Email" />
+                            <TextField fx:id="txtEmail" promptText="Ex: john.doe@email.com"/>
+                        </VBox>
+                        
+                        <Separator />
+                        
+                        <HBox spacing="10.0" alignment="CENTER">
+                            <Button text="Ajouter" onAction="#handleAdd" styleClass="button-success" prefWidth="100"/>
+                            <Button text="Modifier" onAction="#handleUpdate" styleClass="button-warning" prefWidth="100"/>
+                        </HBox>
+                        <HBox spacing="10.0" alignment="CENTER">
+                            <Button text="Supprimer" onAction="#handleDelete" styleClass="button-danger" prefWidth="100"/>
+                            <Button text="Vider" onAction="#handleClear" styleClass="button-secondary" prefWidth="100"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <children>
+                    <VBox spacing="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                            <Label text="Rechercher:" />
+                            <TextField fx:id="txtSearch" promptText="Nom ou téléphone" HBox.hgrow="ALWAYS"/>
+                            <Button text="Chercher" onAction="#handleSearch" />
+                        </HBox>
+                        <TableView fx:id="tableClients" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colId" text="ID" prefWidth="50.0" />
+                                <TableColumn fx:id="colNom" text="Nom" prefWidth="100.0" />
+                                <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="100.0" />
+                                <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="100.0" />
+                                <TableColumn fx:id="colEmail" text="Email" prefWidth="150.0" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </children>
+            </AnchorPane>
+        </items>
+    </SplitPane>
+
+</AnchorPane>
